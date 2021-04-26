@@ -65,7 +65,6 @@ class AllureReporter {
 
     start(err, args) {
         const suiteName = this.options.collection.name;
-        console.log(`### Starting Execution For - ${suiteName} ###`);
         const scope = this.currentSuite || this.allure_runtime;
         const suite = scope.startGroup(suiteName || "Global");
         this.pushSuite(suite);
@@ -145,7 +144,6 @@ class AllureReporter {
             this.currentSuite.endGroup();
             this.popSuite();
         }
-        console.log(`#### Finished Execution ####`);
     }
 
      beforeItem(err, args) {  
@@ -319,7 +317,6 @@ class AllureReporter {
         {
             // bodyModePropObj = this.escape(rItem.pm_item.request_data.body[bodyModeProp]);
             bodyModePropObj = rItem.pm_item.request_data.body[bodyModeProp];
-            console.log(bodyModePropObj);
         } else {
             bodyModePropObj = ""
         }
