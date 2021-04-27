@@ -176,19 +176,18 @@ class AllureReporter {
         fullName = this.getFullName(this.currentNMGroup);
         var parentSuite, suite;
         var subSuites = [];
+        parentSuite = this.options.collection.name;
         if(fullName !== ''){
             if(fullName.indexOf('/') > 0 ){
-                const numFolders =  fullName.split("/").length;
+                const numFolders = fullName.split("/").length;
                 if(numFolders > 0){
-                    parentSuite = fullName.split("/")[0];
+                    suite = fullName.split("/")[0];
                     if(numFolders > 1)
-                        suite = fullName.split("/")[1];
-                        if(numFolders > 2)
-                            subSuites =fullName.split("/").slice(2);
+                        subSuites =fullName.split("/").slice(1);
                 }
             } else {
-                parentSuite = fullName;
-            }     
+                suite = fullName;
+            }
         }
             
         if (parentSuite !== undefined) {
