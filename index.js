@@ -248,7 +248,7 @@ class AllureReporter {
         if(pre_req !== undefined) {
             const buf = Buffer.from(pre_req, "utf8");
             const file = this.allure_runtime.writeAttachment(buf, "text/plain");
-            this.currentTest.addAttachment("pre_request", "text/plain", file);
+            //this.currentTest.addAttachment("pre_request", "text/plain", file);
         }    
     }
 
@@ -256,7 +256,7 @@ class AllureReporter {
         if(test_scrpt !== undefined) {
             const buf = Buffer.from(test_scrpt, "utf8");
             const file = this.allure_runtime.writeAttachment(buf, "text/plain");
-            this.currentTest.addAttachment("test_scrpt", "text/plain", file);
+            //this.currentTest.addAttachment("test_scrpt", "text/plain", file);
         }    
     }
 
