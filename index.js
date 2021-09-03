@@ -238,25 +238,25 @@ class AllureReporter {
 
     attachConsoleLogs(logsArr) {
         if(logsArr.length > 0) {
-            const buf = Buffer.from(logsArr.join('\n'), "utf8");
-            const file = this.allure_runtime.writeAttachment(buf, "text/plain");
-            this.currentTest.addAttachment("console_logs", "text/plain", file);
+//             const buf = Buffer.from(logsArr.join('\n'), "utf8");
+//             const file = this.allure_runtime.writeAttachment(buf, "text/plain");
+//             this.currentTest.addAttachment("console_logs", "text/plain", file);
         }    
     }
 
     attachPrerequest(pre_req) {
         if(pre_req !== undefined) {
-            const buf = Buffer.from(pre_req, "utf8");
-            const file = this.allure_runtime.writeAttachment(buf, "text/plain");
-            //this.currentTest.addAttachment("pre_request", "text/plain", file);
+//             const buf = Buffer.from(pre_req, "utf8");
+//             const file = this.allure_runtime.writeAttachment(buf, "text/plain");
+//             //this.currentTest.addAttachment("pre_request", "text/plain", file);
         }    
     }
 
     attachTestScript(test_scrpt) {
         if(test_scrpt !== undefined) {
-            const buf = Buffer.from(test_scrpt, "utf8");
-            const file = this.allure_runtime.writeAttachment(buf, "text/plain");
-            //this.currentTest.addAttachment("test_scrpt", "text/plain", file);
+//             const buf = Buffer.from(test_scrpt, "utf8");
+//             const file = this.allure_runtime.writeAttachment(buf, "text/plain");
+//             //this.currentTest.addAttachment("test_scrpt", "text/plain", file);
         }    
     }
 
