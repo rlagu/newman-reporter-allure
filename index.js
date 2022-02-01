@@ -237,27 +237,15 @@ class AllureReporter {
     }
 
     attachConsoleLogs(logsArr) {
-        if(logsArr.length > 0) {
-//             const buf = Buffer.from(logsArr.join('\n'), "utf8");
-//             const file = this.allure_runtime.writeAttachment(buf, "text/plain");
-//             this.currentTest.addAttachment("console_logs", "text/plain", file);
-        }    
+          
     }
 
     attachPrerequest(pre_req) {
-        if(pre_req !== undefined) {
-//             const buf = Buffer.from(pre_req, "utf8");
-//             const file = this.allure_runtime.writeAttachment(buf, "text/plain");
-//             //this.currentTest.addAttachment("pre_request", "text/plain", file);
-        }    
+       
     }
 
     attachTestScript(test_scrpt) {
-        if(test_scrpt !== undefined) {
-//             const buf = Buffer.from(test_scrpt, "utf8");
-//             const file = this.allure_runtime.writeAttachment(buf, "text/plain");
-//             //this.currentTest.addAttachment("test_scrpt", "text/plain", file);
-        }    
+          
     }
 
     get currentExecutable() {
@@ -320,8 +308,7 @@ class AllureReporter {
             bodyModePropObj = ""
         }
 
-        const reqTableStr = ` <table> <tr> <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;color:Orange;"> ${bodyModeProp} </th> <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;"> <pre style="color:Orange"> <b> ${bodyModePropObj} </b> </pre> </td> </tr>  </table>`;
-
+        const reqTableStr = ` <table> <tr> <th style="border: 1px solid #dddddd;text-align: left;padding: 8px;color:DarkSlateGray;"> ${bodyModeProp} </th> <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;"> <pre style="color:DarkSlateGray"> ${bodyModePropObj} </pre> </td> </tr>  </table>`;
         const responseCodeStatus= rItem.pm_item.response_data.code + " - " + rItem.pm_item.response_data.status;
 
         var testDescription;
@@ -334,7 +321,7 @@ class AllureReporter {
         }
 
        
-        this.setDescriptionHtml(`<p style="color:MediumPurple;"> <b> ${testDescription} </b> </p> <h4 style="color:DodgerBlue;"><b><i>Request:</i></b></h4> <p style="color:DodgerBlue"> <b> ${requestDataURL} </b> </p> ${reqTableStr} </p> <h4 style="color:DodgerBlue;"> <b> <i> Response: </i> </b> </h4> <p style="color:DodgerBlue"> <b> ${responseCodeStatus} </b> </p> <p > <pre style="color:Orange;"> <b> ${rItem.pm_item.response_data.body} </b> </pre> </p>`);
+        this.setDescriptionHtml(`<p style="color:Black;"> ${testDescription} </p> <hr class="solid"><h4 style="color:Black;">Request:</h4><p style="color:DarkSlateGray;"> ${requestDataURL}  </p> <pre style="color:DarkSlateGray"><small> ${bodyModePropObj} </small> </pre> <hr class="solid"><h4 style="color:Black;"> Response: </h4> <p style="color:DarkSlateGray;"> ${responseCodeStatus} </p> <p > <pre style="color:DarkSlateGray"><small> ${rItem.pm_item.response_data.body} </small> </pre> </p><hr class="solid">`);
         if (rItem.pm_item.failedAssertions.length > 0 ) {
             const msg = this.escape(rItem.pm_item.failedAssertions.join(", "));
             const details = this.escape(`Response code: ${rItem.pm_item.response_data.code}, status: ${rItem.pm_item.response_data.status}`);
